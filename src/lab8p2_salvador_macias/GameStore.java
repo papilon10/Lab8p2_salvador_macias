@@ -62,13 +62,13 @@ public class GameStore extends javax.swing.JFrame {
         txtGeneroJuego = new javax.swing.JTextField();
         DialogMod = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
-        txtNombreJuego1 = new javax.swing.JTextField();
+        txtnombreMod = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtPrecioJuego1 = new javax.swing.JTextField();
+        txtPrecioMod = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtDeveloperJuego1 = new javax.swing.JTextField();
+        txtDeveloperMod = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtGeneroJuego1 = new javax.swing.JTextField();
+        txtGeneroMod = new javax.swing.JTextField();
         btn_modificar = new javax.swing.JButton();
         DialogEliminar = new javax.swing.JDialog();
         jLabel10 = new javax.swing.JLabel();
@@ -185,6 +185,11 @@ public class GameStore extends javax.swing.JFrame {
         jLabel9.setText("nuevo genero del juego");
 
         btn_modificar.setText("modificar");
+        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout DialogModLayout = new javax.swing.GroupLayout(DialogMod.getContentPane());
         DialogMod.getContentPane().setLayout(DialogModLayout);
@@ -204,11 +209,11 @@ public class GameStore extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGap(66, 66, 66)
                         .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtnombreMod, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtPrecioJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtDeveloperJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtGeneroJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtPrecioMod, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDeveloperMod, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtGeneroMod, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel6))
                 .addContainerGap(222, Short.MAX_VALUE))
         );
@@ -218,15 +223,15 @@ public class GameStore extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtNombreJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtnombreMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtPrecioJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtDeveloperJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDeveloperMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DialogModLayout.createSequentialGroup()
@@ -234,7 +239,7 @@ public class GameStore extends javax.swing.JFrame {
                         .addComponent(btn_modificar))
                     .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(txtGeneroJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtGeneroMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -328,6 +333,7 @@ public class GameStore extends javax.swing.JFrame {
     private void menuModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuModActionPerformed
         DialogMod.setVisible(true);
         DialogMod.pack();
+
         // TODO add your handling code here:
     }//GEN-LAST:event_menuModActionPerformed
 
@@ -358,7 +364,7 @@ public class GameStore extends javax.swing.JFrame {
         DefaultMutableTreeNode nodoSeleccionado = (DefaultMutableTreeNode) objetoSeleccionado;
         Object informacion = nodoSeleccionado.getUserObject();
         if (informacion instanceof juego) {
-            JOptionPane.showMessageDialog(null, "informacion del juego \n"
+            JOptionPane.showMessageDialog(this, "informacion del juego \n"
                     + nodoSeleccionado.toString()
             );
 
@@ -413,6 +419,20 @@ public class GameStore extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_agregarJuegoActionPerformed
+
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+        Object objetoSeleccionado = jTree1.getSelectionPath().getLastPathComponent();
+        DefaultMutableTreeNode nodoSeleccionado = (DefaultMutableTreeNode) objetoSeleccionado;
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jTree1.getModel();
+
+        juego juegomod = new juego(txtnombreMod.getText(), txtPrecioMod.getText(),
+                txtDeveloperMod.getText(), txtGeneroMod.getText());
+
+        nodoSeleccionado.setUserObject(juegomod);
+
+        modeloArbol.reload();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_modificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -475,12 +495,12 @@ public class GameStore extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuListar;
     private javax.swing.JMenuItem menuMod;
     private javax.swing.JTextField txtDeveloperJuego;
-    private javax.swing.JTextField txtDeveloperJuego1;
+    private javax.swing.JTextField txtDeveloperMod;
     private javax.swing.JTextField txtGeneroJuego;
-    private javax.swing.JTextField txtGeneroJuego1;
+    private javax.swing.JTextField txtGeneroMod;
     private javax.swing.JTextField txtNombreJuego;
-    private javax.swing.JTextField txtNombreJuego1;
     private javax.swing.JTextField txtPrecioJuego;
-    private javax.swing.JTextField txtPrecioJuego1;
+    private javax.swing.JTextField txtPrecioMod;
+    private javax.swing.JTextField txtnombreMod;
     // End of variables declaration//GEN-END:variables
 }

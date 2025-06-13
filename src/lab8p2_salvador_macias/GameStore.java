@@ -6,6 +6,7 @@ package lab8p2_salvador_macias;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -70,9 +71,6 @@ public class GameStore extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtGeneroMod = new javax.swing.JTextField();
         btn_modificar = new javax.swing.JButton();
-        DialogEliminar = new javax.swing.JDialog();
-        jLabel10 = new javax.swing.JLabel();
-        DialogListar = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
@@ -243,37 +241,6 @@ public class GameStore extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
-        jLabel10.setText("PEPEEE");
-
-        javax.swing.GroupLayout DialogEliminarLayout = new javax.swing.GroupLayout(DialogEliminar.getContentPane());
-        DialogEliminar.getContentPane().setLayout(DialogEliminarLayout);
-        DialogEliminarLayout.setHorizontalGroup(
-            DialogEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DialogEliminarLayout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(jLabel10)
-                .addContainerGap(229, Short.MAX_VALUE))
-        );
-        DialogEliminarLayout.setVerticalGroup(
-            DialogEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogEliminarLayout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(190, 190, 190))
-        );
-
-        javax.swing.GroupLayout DialogListarLayout = new javax.swing.GroupLayout(DialogListar.getContentPane());
-        DialogListar.getContentPane().setLayout(DialogListarLayout);
-        DialogListarLayout.setHorizontalGroup(
-            DialogListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
-        );
-        DialogListarLayout.setVerticalGroup(
-            DialogListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 325, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
@@ -413,9 +380,23 @@ public class GameStore extends javax.swing.JFrame {
 
         lista.add(nuevoJuego);
 
-        DefaultMutableTreeNode nodoJuego = new DefaultMutableTreeNode(nuevoJuego);
+        DefaultMutableTreeNode nodoJuego = new DefaultMutableTreeNode(lista.getLast());
         nuevoGenero.add(nodoJuego);
+
         modeloArbol.reload();
+
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) raiz.getChildAt(i);
+            if (txtDeveloperJuego.getText().equalsIgnoreCase(nodo.getUserObject().toString())) {
+
+            } else {
+                nuevoDeveloper = new DefaultMutableTreeNode(txtDeveloperJuego.getText());
+                raiz.add(nuevoDeveloper);
+                modeloArbol.reload();
+
+            }
+
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_agregarJuegoActionPerformed
@@ -433,6 +414,21 @@ public class GameStore extends javax.swing.JFrame {
         modeloArbol.reload();
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_modificarActionPerformed
+
+    private void validarDev(DefaultMutableTreeNode raiz) {
+
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) raiz.getChildAt(i);
+            if (txtDeveloperJuego.getText().equalsIgnoreCase(nodo.getUserObject().toString())) {
+
+            } else {
+                DefaultMutableTreeNode nuevoDeveloper = new DefaultMutableTreeNode(txtDeveloperJuego.getText());
+                raiz.add(nuevoDeveloper);
+
+            }
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -472,13 +468,10 @@ public class GameStore extends javax.swing.JFrame {
     public static ArrayList<juego> lista = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DialogAgregar;
-    private javax.swing.JDialog DialogEliminar;
-    private javax.swing.JDialog DialogListar;
     private javax.swing.JDialog DialogMod;
     private javax.swing.JButton btn_agregarJuego;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

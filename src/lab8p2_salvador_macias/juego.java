@@ -61,5 +61,7 @@ public class juego {
                 + "\ndesarrollador del juego: " + Developer
                 + "\ngenero del juego: " + Genero;
     }
+    
+    
 
 }

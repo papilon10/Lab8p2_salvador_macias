@@ -332,8 +332,22 @@ public class GameStore extends javax.swing.JFrame {
     }//GEN-LAST:event_menuModActionPerformed
 
     private void menuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEliminarActionPerformed
-        DialogEliminar.setVisible(true);
-        DialogEliminar.pack();
+        //   DialogEliminar.setVisible(true);
+        // DialogEliminar.pack();
+
+        Object objetoSeleccionado = jTree1.getSelectionPath().getLastPathComponent();
+        DefaultMutableTreeNode nodoSeleccionado = (DefaultMutableTreeNode) objetoSeleccionado;
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jTree1.getModel();
+        if (nodoSeleccionado.isRoot()) {
+            JOptionPane.showMessageDialog(this, "No se puede eliminar la raiz");
+
+        } else {
+            DefaultMutableTreeNode padre = (DefaultMutableTreeNode) nodoSeleccionado.getParent();
+            padre.remove(nodoSeleccionado);
+            modeloArbol.reload();
+            JOptionPane.showMessageDialog(this, "Nodo eliminado");
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_menuEliminarActionPerformed
 
@@ -377,12 +391,21 @@ public class GameStore extends javax.swing.JFrame {
         DefaultTreeModel modeloArbol = (DefaultTreeModel) jTree1.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
         raiz.removeAllChildren();
+
+        DefaultMutableTreeNode nuevoDeveloper = new DefaultMutableTreeNode(txtDeveloperJuego.getText());
+        raiz.add(nuevoDeveloper);
+
+        modeloArbol.reload();
+
         DefaultMutableTreeNode nuevoGenero = new DefaultMutableTreeNode(txtGeneroJuego.getText());
-        raiz.add(nuevoGenero);
+        nuevoDeveloper.add(nuevoGenero);
+
         modeloArbol.reload();
 
         juego nuevoJuego = new juego(txtNombreJuego.getText(), txtPrecioJuego.getText(),
                 txtDeveloperJuego.getText(), txtGeneroJuego.getText());
+
+        lista.add(nuevoJuego);
 
         DefaultMutableTreeNode nodoJuego = new DefaultMutableTreeNode(nuevoJuego);
         nuevoGenero.add(nodoJuego);

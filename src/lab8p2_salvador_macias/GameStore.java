@@ -4,6 +4,7 @@
  */
 package lab8p2_salvador_macias;
 
+import java.util.ArrayList;
 import javax.swing.SwingUtilities;
 
 /**
@@ -34,6 +35,15 @@ public class GameStore extends javax.swing.JFrame {
         menuEliminar = new javax.swing.JMenuItem();
         menuListar = new javax.swing.JMenuItem();
         DialogAgregar = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btn_agregarJuego = new javax.swing.JButton();
+        txtPrecioJuego = new javax.swing.JTextField();
+        txtNombreJuego = new javax.swing.JTextField();
+        txtDeveloperJuego = new javax.swing.JTextField();
+        txtGeneroJuego = new javax.swing.JTextField();
         DialogMod = new javax.swing.JDialog();
         DialogEliminar = new javax.swing.JDialog();
         DialogListar = new javax.swing.JDialog();
@@ -58,15 +68,66 @@ public class GameStore extends javax.swing.JFrame {
         menuListar.setText("Listar info del juego");
         jPopupMenu1.add(menuListar);
 
+        jLabel2.setText("nombre del juego");
+
+        jLabel3.setText("precio del juego");
+
+        jLabel4.setText("genero del juego");
+
+        jLabel5.setText("developer del juego");
+
+        btn_agregarJuego.setText("agregar");
+
         javax.swing.GroupLayout DialogAgregarLayout = new javax.swing.GroupLayout(DialogAgregar.getContentPane());
         DialogAgregar.getContentPane().setLayout(DialogAgregarLayout);
         DialogAgregarLayout.setHorizontalGroup(
             DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogAgregarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_agregarJuego)
+                .addGap(224, 224, 224))
+            .addGroup(DialogAgregarLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogAgregarLayout.createSequentialGroup()
+                        .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(66, 66, 66)
+                        .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtPrecioJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDeveloperJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtGeneroJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel2))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         DialogAgregarLayout.setVerticalGroup(
             DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(DialogAgregarLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombreJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtPrecioJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtDeveloperJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogAgregarLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(btn_agregarJuego))
+                    .addGroup(DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtGeneroJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DialogModLayout = new javax.swing.GroupLayout(DialogMod.getContentPane());
@@ -191,12 +252,18 @@ public class GameStore extends javax.swing.JFrame {
         });
     }
 
+    public static ArrayList<juego> lista = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog DialogAgregar;
     private javax.swing.JDialog DialogEliminar;
     private javax.swing.JDialog DialogListar;
     private javax.swing.JDialog DialogMod;
+    private javax.swing.JButton btn_agregarJuego;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
@@ -204,5 +271,9 @@ public class GameStore extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuEliminar;
     private javax.swing.JMenuItem menuListar;
     private javax.swing.JMenuItem menuMod;
+    private javax.swing.JTextField txtDeveloperJuego;
+    private javax.swing.JTextField txtGeneroJuego;
+    private javax.swing.JTextField txtNombreJuego;
+    private javax.swing.JTextField txtPrecioJuego;
     // End of variables declaration//GEN-END:variables
 }

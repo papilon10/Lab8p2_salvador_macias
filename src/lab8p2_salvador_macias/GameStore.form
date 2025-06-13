@@ -20,16 +20,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar Juego&#xa;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuModActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="menuEliminar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar juego&#xa;"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuEliminarActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="menuListar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Listar info del juego"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuListarActionPerformed"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>

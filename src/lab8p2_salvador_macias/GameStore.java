@@ -6,6 +6,8 @@ package lab8p2_salvador_macias;
 
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -18,6 +20,18 @@ public class GameStore extends javax.swing.JFrame {
      */
     public GameStore() {
         initComponents();
+
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        raiz.removeAllChildren();
+
+        //   DefaultMutableTreeNode nodoN = new DefaultMutableTreeNode("nintendo");
+        // DefaultMutableTreeNode nodoP = new DefaultMutableTreeNode("play");
+        // raiz.add(nodoN);
+        //raiz.add(nodoP);
+        raiz.setUserObject("Juegos");
+        modeloArbol.reload();
+
     }
 
     /**
@@ -60,12 +74,27 @@ public class GameStore extends javax.swing.JFrame {
         jPopupMenu1.add(menuAgregar);
 
         menuMod.setText("Modificar Juego\n");
+        menuMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuModActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(menuMod);
 
         menuEliminar.setText("Eliminar juego\n");
+        menuEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEliminarActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(menuEliminar);
 
         menuListar.setText("Listar info del juego");
+        menuListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuListarActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(menuListar);
 
         jLabel2.setText("nombre del juego");
@@ -214,8 +243,29 @@ public class GameStore extends javax.swing.JFrame {
     }//GEN-LAST:event_jTree1MouseClicked
 
     private void menuAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregarActionPerformed
+        DialogAgregar.setVisible(true);
+        DialogAgregar.pack();
         // TODO add your handling code here:
     }//GEN-LAST:event_menuAgregarActionPerformed
+
+    private void menuModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuModActionPerformed
+        DialogMod.setVisible(true);
+        DialogMod.pack();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuModActionPerformed
+
+    private void menuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEliminarActionPerformed
+        DialogEliminar.setVisible(true);
+        DialogEliminar.pack();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuEliminarActionPerformed
+
+    private void menuListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListarActionPerformed
+        DialogListar.setVisible(true);
+        DialogListar.pack();
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_menuListarActionPerformed
 
     /**
      * @param args the command line arguments

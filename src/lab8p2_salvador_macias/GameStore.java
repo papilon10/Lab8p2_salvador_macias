@@ -5,9 +5,11 @@
 package lab8p2_salvador_macias;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 
 /**
  *
@@ -59,7 +61,17 @@ public class GameStore extends javax.swing.JFrame {
         txtDeveloperJuego = new javax.swing.JTextField();
         txtGeneroJuego = new javax.swing.JTextField();
         DialogMod = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        txtNombreJuego1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtPrecioJuego1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtDeveloperJuego1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtGeneroJuego1 = new javax.swing.JTextField();
+        btn_modificar = new javax.swing.JButton();
         DialogEliminar = new javax.swing.JDialog();
+        jLabel10 = new javax.swing.JLabel();
         DialogListar = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -106,6 +118,11 @@ public class GameStore extends javax.swing.JFrame {
         jLabel5.setText("developer del juego");
 
         btn_agregarJuego.setText("agregar");
+        btn_agregarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarJuegoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout DialogAgregarLayout = new javax.swing.GroupLayout(DialogAgregar.getContentPane());
         DialogAgregar.getContentPane().setLayout(DialogAgregarLayout);
@@ -159,37 +176,97 @@ public class GameStore extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
+        jLabel6.setText("nuevo nombre del juego");
+
+        jLabel7.setText("nuevo precio del juego");
+
+        jLabel8.setText("nuevo developer del juego");
+
+        jLabel9.setText("nuevo genero del juego");
+
+        btn_modificar.setText("modificar");
+
         javax.swing.GroupLayout DialogModLayout = new javax.swing.GroupLayout(DialogMod.getContentPane());
         DialogMod.getContentPane().setLayout(DialogModLayout);
         DialogModLayout.setHorizontalGroup(
             DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogModLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_modificar)
+                .addGap(224, 224, 224))
+            .addGroup(DialogModLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogModLayout.createSequentialGroup()
+                        .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel9))
+                        .addGap(66, 66, 66)
+                        .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtPrecioJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDeveloperJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtGeneroJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel6))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         DialogModLayout.setVerticalGroup(
             DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(DialogModLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtNombreJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtPrecioJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtDeveloperJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DialogModLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(btn_modificar))
+                    .addGroup(DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(txtGeneroJuego1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
+
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
+        jLabel10.setText("PEPEEE");
 
         javax.swing.GroupLayout DialogEliminarLayout = new javax.swing.GroupLayout(DialogEliminar.getContentPane());
         DialogEliminar.getContentPane().setLayout(DialogEliminarLayout);
         DialogEliminarLayout.setHorizontalGroup(
             DialogEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(DialogEliminarLayout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(jLabel10)
+                .addContainerGap(229, Short.MAX_VALUE))
         );
         DialogEliminarLayout.setVerticalGroup(
             DialogEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogEliminarLayout.createSequentialGroup()
+                .addContainerGap(188, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(190, 190, 190))
         );
 
         javax.swing.GroupLayout DialogListarLayout = new javax.swing.GroupLayout(DialogListar.getContentPane());
         DialogListar.getContentPane().setLayout(DialogListarLayout);
         DialogListarLayout.setHorizontalGroup(
             DialogListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 525, Short.MAX_VALUE)
         );
         DialogListarLayout.setVerticalGroup(
             DialogListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 325, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -261,11 +338,58 @@ public class GameStore extends javax.swing.JFrame {
     }//GEN-LAST:event_menuEliminarActionPerformed
 
     private void menuListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListarActionPerformed
-        DialogListar.setVisible(true);
-        DialogListar.pack();
+        // DialogListar.setVisible(true);
+        // DialogListar.pack();
+        Object objetoSeleccionado = jTree1.getSelectionPath().getLastPathComponent();
+        DefaultMutableTreeNode nodoSeleccionado = (DefaultMutableTreeNode) objetoSeleccionado;
+        Object informacion = nodoSeleccionado.getUserObject();
+        if (informacion instanceof juego) {
+            JOptionPane.showMessageDialog(null, "informacion del juego \n"
+                    + nodoSeleccionado.toString()
+            );
+
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_menuListarActionPerformed
+
+    private void btn_agregarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarJuegoActionPerformed
+        /* String GeneroArbol = txtGeneroJuego.getText();
+        
+        String genero = txtGeneroJuego.getText();
+        juego nuevoJuego= new juego(txtNombreJuego.getText(), txtPrecioJuego.getText(),
+                txtDeveloperJuego.getText(),txtGeneroJuego.getText() );
+        if (jTree1.getse) {
+            
+        }
+
+        DefaultMutableTreeNode nuevoGen = new DefaultMutableTreeNode(genero);
+
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+
+        DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) raiz.getChildAt(nuevoGen.add(raiz));
+        DefaultMutableTreeNode nuevoNodo = new DefaultMutableTreeNode(nuevoJuego);
+
+        nodo.add(nuevoNodo);
+        modeloArbol.reload();*/
+
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        raiz.removeAllChildren();
+        DefaultMutableTreeNode nuevoGenero = new DefaultMutableTreeNode(txtGeneroJuego.getText());
+        raiz.add(nuevoGenero);
+        modeloArbol.reload();
+
+        juego nuevoJuego = new juego(txtNombreJuego.getText(), txtPrecioJuego.getText(),
+                txtDeveloperJuego.getText(), txtGeneroJuego.getText());
+
+        DefaultMutableTreeNode nodoJuego = new DefaultMutableTreeNode(nuevoJuego);
+        nuevoGenero.add(nodoJuego);
+        modeloArbol.reload();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agregarJuegoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,11 +433,17 @@ public class GameStore extends javax.swing.JFrame {
     private javax.swing.JDialog DialogListar;
     private javax.swing.JDialog DialogMod;
     private javax.swing.JButton btn_agregarJuego;
+    private javax.swing.JButton btn_modificar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
@@ -322,8 +452,12 @@ public class GameStore extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuListar;
     private javax.swing.JMenuItem menuMod;
     private javax.swing.JTextField txtDeveloperJuego;
+    private javax.swing.JTextField txtDeveloperJuego1;
     private javax.swing.JTextField txtGeneroJuego;
+    private javax.swing.JTextField txtGeneroJuego1;
     private javax.swing.JTextField txtNombreJuego;
+    private javax.swing.JTextField txtNombreJuego1;
     private javax.swing.JTextField txtPrecioJuego;
+    private javax.swing.JTextField txtPrecioJuego1;
     // End of variables declaration//GEN-END:variables
 }

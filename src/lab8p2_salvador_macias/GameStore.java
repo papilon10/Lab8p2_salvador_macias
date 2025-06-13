@@ -29,25 +29,78 @@ public class GameStore extends javax.swing.JFrame {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menuAgregar = new javax.swing.JMenuItem();
+        menuMod = new javax.swing.JMenuItem();
+        menuEliminar = new javax.swing.JMenuItem();
+        menuListar = new javax.swing.JMenuItem();
+        DialogAgregar = new javax.swing.JDialog();
+        DialogMod = new javax.swing.JDialog();
+        DialogEliminar = new javax.swing.JDialog();
+        DialogListar = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
 
-        jMenuItem1.setText("jMenuItem1");
-        jPopupMenu1.add(jMenuItem1);
+        menuAgregar.setText("Agregar Juego\n");
+        menuAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAgregarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(menuAgregar);
 
-        jMenuItem2.setText("jMenuItem2");
-        jPopupMenu1.add(jMenuItem2);
+        menuMod.setText("Modificar Juego\n");
+        jPopupMenu1.add(menuMod);
 
-        jMenuItem3.setText("jMenuItem3");
-        jPopupMenu1.add(jMenuItem3);
+        menuEliminar.setText("Eliminar juego\n");
+        jPopupMenu1.add(menuEliminar);
 
-        jMenuItem4.setText("jMenuItem4");
-        jPopupMenu1.add(jMenuItem4);
+        menuListar.setText("Listar info del juego");
+        jPopupMenu1.add(menuListar);
+
+        javax.swing.GroupLayout DialogAgregarLayout = new javax.swing.GroupLayout(DialogAgregar.getContentPane());
+        DialogAgregar.getContentPane().setLayout(DialogAgregarLayout);
+        DialogAgregarLayout.setHorizontalGroup(
+            DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DialogAgregarLayout.setVerticalGroup(
+            DialogAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout DialogModLayout = new javax.swing.GroupLayout(DialogMod.getContentPane());
+        DialogMod.getContentPane().setLayout(DialogModLayout);
+        DialogModLayout.setHorizontalGroup(
+            DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DialogModLayout.setVerticalGroup(
+            DialogModLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout DialogEliminarLayout = new javax.swing.GroupLayout(DialogEliminar.getContentPane());
+        DialogEliminar.getContentPane().setLayout(DialogEliminarLayout);
+        DialogEliminarLayout.setHorizontalGroup(
+            DialogEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DialogEliminarLayout.setVerticalGroup(
+            DialogEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout DialogListarLayout = new javax.swing.GroupLayout(DialogListar.getContentPane());
+        DialogListar.getContentPane().setLayout(DialogListarLayout);
+        DialogListarLayout.setHorizontalGroup(
+            DialogListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DialogListarLayout.setVerticalGroup(
+            DialogListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +152,10 @@ public class GameStore extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTree1MouseClicked
 
+    private void menuAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuAgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -135,13 +192,17 @@ public class GameStore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog DialogAgregar;
+    private javax.swing.JDialog DialogEliminar;
+    private javax.swing.JDialog DialogListar;
+    private javax.swing.JDialog DialogMod;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
+    private javax.swing.JMenuItem menuAgregar;
+    private javax.swing.JMenuItem menuEliminar;
+    private javax.swing.JMenuItem menuListar;
+    private javax.swing.JMenuItem menuMod;
     // End of variables declaration//GEN-END:variables
 }
